@@ -1,4 +1,5 @@
 <?php
+// KaryawanMagang.php
 require_once 'Karyawan.php';
 
 class KaryawanMagang extends Karyawan {
@@ -11,8 +12,9 @@ class KaryawanMagang extends Karyawan {
         $this->sertifikatKampusMerdeka = $sertifikatKampusMerdeka;
     }
 
+    // Overriding: Gaji kehadiran x 0.80 (potongan orientasi/asuransi)
     public function hitungGajiBersih() {
-        return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) + $this->uangSakuBulanan;
+        return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) * 0.80;
     }
 
     public function tampilkanProfilKaryawan() {
@@ -23,6 +25,6 @@ class KaryawanMagang extends Karyawan {
         echo "Status: Magang<br>";
         echo "Sertifikat: " . $this->sertifikatKampusMerdeka . "<br>";
         echo "Uang Saku Bulanan: Rp " . number_format($this->uangSakuBulanan, 2, ',', '.') . "<br>";
-        echo "Gaji Bersih: Rp " . number_format($this->hitungGajiBersih(), 2, ',', '.') . "<br><br>";
+        echo "Gaji Bersih (Setelah Potongan Orientasi): Rp " . number_format($this->hitungGajiBersih(), 2, ',', '.') . "<br><br>";
     }
 }

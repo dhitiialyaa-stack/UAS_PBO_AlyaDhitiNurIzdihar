@@ -1,4 +1,5 @@
 <?php
+// KaryawanTetap.php
 require_once 'Karyawan.php';
 
 class KaryawanTetap extends Karyawan {
@@ -11,6 +12,7 @@ class KaryawanTetap extends Karyawan {
         $this->opsiSahamId = $opsiSahamId;
     }
 
+    // Overriding: Gaji kehadiran + tunjangan kesehatan
     public function hitungGajiBersih() {
         return ($this->hariKerjaMasuk * $this->gajiDasarPerHari) + $this->tunjanganKesehatan;
     }

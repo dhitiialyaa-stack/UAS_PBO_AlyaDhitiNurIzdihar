@@ -1,4 +1,5 @@
 <?php
+// KaryawanKontrak.php
 require_once 'Karyawan.php';
 
 class KaryawanKontrak extends Karyawan {
@@ -11,6 +12,7 @@ class KaryawanKontrak extends Karyawan {
         $this->agensiPenyalur = $agensiPenyalur;
     }
 
+    // Overriding: Gaji murni berdasarkan kehadiran
     public function hitungGajiBersih() {
         return $this->hariKerjaMasuk * $this->gajiDasarPerHari;
     }
